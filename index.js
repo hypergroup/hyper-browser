@@ -18,7 +18,7 @@ exports = module.exports = function(value, dom, opts) {
   return handle(dom, opts || {}, [], value);
 };
 
-function handle(dom, opts, path, item, key) {
+function handle(dom, opts, path, item, key, handleFn) {
   var itemType = type(item);
   var mod = types[itemType];
   if (!mod) throw new Error('Unsupported type "' + itemType + '"');
@@ -29,7 +29,9 @@ function handle(dom, opts, path, item, key) {
       key !== 'collection' &&
       key !== 'data') path = append(path, key);
 
-  return mod(item, dom, opts, handle.bind(null, dom, opts, path), resolve.bind(null, path));
+  handleFn = handleFn || handle.bind(null, dom, opts, path);
+
+  return mod(item, dom, opts, handleFn, resolve.bind(null, path));
 };
 
 function resolve(path, id) {

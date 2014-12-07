@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/hypergroup/hyper-browser",
   "dependencies": {
-    "component-type": "^1.0.0"
+    "component-type": "^1.0.0",
+    "utils-merge": "^1.0.0"
   },
   "devDependencies": {
     "mocha": "^2.0.1",
