@@ -1,6 +1,6 @@
 {
   "name": "hyper-browser",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "hyper+json browser",
   "main": "index.js",
   "scripts": {
